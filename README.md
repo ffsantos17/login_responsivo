@@ -1,16 +1,10 @@
-# login_responsivo
+# Página de Login Responsiva
 
-Pagina Login Responsiva
+Página Reponsiva que se adapte para resoluções diferentes.
 
-## Getting Started
+Exibição em Tela larga:
 
-This project is a starting point for a Flutter application.
+<a href="https://ibb.co/kgN1m4R"><img src="https://i.ibb.co/HD5dhtW/Tela-Grande.png" alt="Tela-Grande" border="0"></a>
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Exibição em tela pequena:
+<a href="https://ibb.co/BsfXW2q"><img src="https://i.ibb.co/ggr5qZz/Tela-Pequena.png" alt="Tela-Pequena" border="0"></a>

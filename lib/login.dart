@@ -12,10 +12,12 @@ class TelaLogin extends StatefulWidget {
 }
 
 class _TelaLoginState extends State<TelaLogin> {
+  bool ocultaSenha = true;
   @override
   Widget build(BuildContext context) {
     double altura = MediaQuery.of(context).size.height;
     double largura = MediaQuery.of(context).size.width;
+
 
     return Scaffold(
       backgroundColor: AppColors.backColor,
@@ -30,9 +32,9 @@ class _TelaLoginState extends State<TelaLogin> {
             WidgetResponsivo.isTelaPequena(context) ? SizedBox(): Expanded(
               child: Container(
                 height: altura,
-                color: AppColors.mainBlueColor,
+                color: AppColors.mainGreenColor,
                 child: Center(
-                  child: Text('Pagina Login Responsivo',
+                  child: Text('Página Login Responsivo',
                     style: ralewayStyle.copyWith(
                       fontSize: 48.0,
                       color: AppColors.whiteColor,
@@ -54,25 +56,25 @@ class _TelaLoginState extends State<TelaLogin> {
                     SizedBox(height: altura * 0.145),
                     RichText(text: TextSpan(
                         children: [
-                          TextSpan(
+                          /*TextSpan(
                             text: 'Vamos lá',
                             style: ralewayStyle.copyWith(
                               fontSize: 25.0,
-                              color: AppColors.blueDarkColor,
+                              color: AppColors.greenDarkColor,
                               fontWeight: FontWeight.normal,
                             )
-                          ),
+                          ),*/
                           TextSpan(
                             text: ' Login',
                             style: ralewayStyle.copyWith(
                               fontWeight: FontWeight.w800,
-                              color: AppColors.blueDarkColor,
+                              color: AppColors.greenDarkColor,
                               fontSize: 25.0,
                             )
                           )
                     ])),
                     SizedBox(height: altura * 0.02),
-                    Text('Olá, informe seus dados apra realizar o login',
+                    Text('Olá, informe seus dados para realizar o login',
                     style: ralewayStyle.copyWith(
                       fontSize: 12.0,
                       fontWeight: FontWeight.w400,
@@ -85,7 +87,7 @@ class _TelaLoginState extends State<TelaLogin> {
                       child: Text('Email',
                       style: ralewayStyle.copyWith(
                         fontSize: 12.0,
-                        color: AppColors.blueDarkColor,
+                        color: AppColors.greenDarkColor,
                         fontWeight: FontWeight.w700
                       ),),
                     ),
@@ -101,20 +103,17 @@ class _TelaLoginState extends State<TelaLogin> {
 
                         style: ralewayStyle.copyWith(
                           fontWeight: FontWeight.w400,
-                          color: AppColors.blueDarkColor,
+                          color: AppColors.greenDarkColor,
                           fontSize: 12.0,
                         ),
                         decoration: InputDecoration(
                           border: InputBorder.none,
-                          prefixIcon: IconButton(
-                            onPressed: (){},
-                            icon: Icon(Icons.email),
-                          ),
+                          prefixIcon: Icon(Icons.email),
                           contentPadding: const EdgeInsets.only(top: 16.0),
                           hintText: 'Email',
                           hintStyle: ralewayStyle.copyWith(
                             fontWeight: FontWeight.w400,
-                            color: AppColors.blueDarkColor.withOpacity(0.5),
+                            color: AppColors.greenDarkColor.withOpacity(0.5),
                             fontSize: 12.0,
                           )
                         ),
@@ -127,7 +126,7 @@ class _TelaLoginState extends State<TelaLogin> {
                       child: Text('Senha',
                         style: ralewayStyle.copyWith(
                             fontSize: 12.0,
-                            color: AppColors.blueDarkColor,
+                            color: AppColors.greenDarkColor,
                             fontWeight: FontWeight.w700
                         ),),
                     ),
@@ -143,25 +142,26 @@ class _TelaLoginState extends State<TelaLogin> {
 
                         style: ralewayStyle.copyWith(
                           fontWeight: FontWeight.w400,
-                          color: AppColors.blueDarkColor,
+                          color: AppColors.greenDarkColor,
                           fontSize: 12.0,
                         ),
-                        obscureText: true,
+                        obscureText: ocultaSenha,
                         decoration: InputDecoration(
                             border: InputBorder.none,
                             suffixIcon: IconButton(
-                              onPressed: (){},
-                              icon: Icon(Icons.remove_red_eye_outlined),
+                              onPressed: (){
+                                setState(() {
+                                  ocultaSenha = !ocultaSenha;
+                                });
+                              },
+                              icon: Icon( ocultaSenha == true ? Icons.visibility_off : Icons.visibility),
                             ),
-                            prefixIcon: IconButton(
-                              onPressed: (){},
-                              icon: Icon(Icons.lock),
-                            ),
+                            prefixIcon: Icon(Icons.lock),
                             contentPadding: const EdgeInsets.only(top: 16.0),
                             hintText: 'Senha',
                             hintStyle: ralewayStyle.copyWith(
                               fontWeight: FontWeight.w400,
-                              color: AppColors.blueDarkColor.withOpacity(0.5),
+                              color: AppColors.greenDarkColor.withOpacity(0.5),
                               fontSize: 12.0,
                             )
                         ),
@@ -175,7 +175,7 @@ class _TelaLoginState extends State<TelaLogin> {
                           child: Text('Esqueceu a senha?',
                           style: ralewayStyle.copyWith(
                             fontSize: 12.0,
-                            color: AppColors.mainBlueColor,
+                            color: AppColors.mainGreenColor,
                             fontWeight: FontWeight.w600,
                           ),)),
                     ),
@@ -191,7 +191,7 @@ class _TelaLoginState extends State<TelaLogin> {
                           padding: const EdgeInsets.symmetric(horizontal: 70.0, vertical: 18.0),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(16.0),
-                            color: AppColors.mainBlueColor,
+                            color: AppColors.mainGreenColor,
                           ),
                           child: Text('Login',
                           style: ralewayStyle.copyWith(
