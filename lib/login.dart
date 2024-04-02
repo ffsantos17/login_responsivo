@@ -12,6 +12,19 @@ class TelaLogin extends StatefulWidget {
 }
 
 class _TelaLoginState extends State<TelaLogin> {
+
+  static bool isTelaPequena(BuildContext context){
+    return MediaQuery.of(context).size.width < 800;
+  }
+
+  static bool isTelaGrande(BuildContext context){
+    return MediaQuery.of(context).size.width > 1200;
+  }
+
+  static bool isTelaMedia(BuildContext context){
+    return MediaQuery.of(context).size.width >= 800 &&
+        MediaQuery.of(context).size.width <= 1200;
+  }
   bool ocultaSenha = true;
   @override
   Widget build(BuildContext context) {
@@ -29,7 +42,7 @@ class _TelaLoginState extends State<TelaLogin> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            WidgetResponsivo.isTelaPequena(context) ? SizedBox(): Expanded(
+            isTelaPequena(context) ? SizedBox(): Expanded(
               child: Container(
                 height: altura,
                 color: AppColors.mainGreenColor,
@@ -56,14 +69,14 @@ class _TelaLoginState extends State<TelaLogin> {
                     SizedBox(height: altura * 0.145),
                     RichText(text: TextSpan(
                         children: [
-                          /*TextSpan(
+                          TextSpan(
                             text: 'Vamos lá',
                             style: ralewayStyle.copyWith(
                               fontSize: 25.0,
                               color: AppColors.greenDarkColor,
                               fontWeight: FontWeight.normal,
                             )
-                          ),*/
+                          ),
                           TextSpan(
                             text: ' Login',
                             style: ralewayStyle.copyWith(
